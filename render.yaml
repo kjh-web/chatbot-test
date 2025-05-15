@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: galaxy-chatbot
+    env: docker
+    buildCommand: docker build -t galaxy-chatbot .
+    startCommand: ./start.sh
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: MALLOC_ARENA_MAX
+        value: 2
+      - key: PYTHONMALLOC
+        value: malloc
+    autoDeploy: true
+    plan: starter  # Render starter 플랜 (512MB RAM) 

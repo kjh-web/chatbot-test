@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SVG to PNG Converter</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    button { padding: 10px; margin: 10px 0; }
+    #preview { margin-top: 20px; border: 1px solid #ccc; padding: 10px; }
+  </style>
+</head>
+<body>
+  <h1>SVG to PNG Converter</h1>
+  
+  <div>
+    <p>갤럭시 S25 아이콘 미리보기:</p>
+    <img src="galaxy-icon.svg" width="128" height="128" id="svgImage">
+  </div>
+  
+  <button onclick="convertToPNG()">Convert to PNG</button>
+  
+  <div id="preview"></div>
+  
+  <script>
+    function convertToPNG() {
+      const svgImage = document.getElementById('svgImage');
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Create sizes: 16x16, 32x32, 48x48, 128x128, 512x512
+      const sizes = [16, 32, 48, 128, 512];
+      const previewDiv = document.getElementById('preview');
+      previewDiv.innerHTML = '';
+      
+      sizes.forEach(size => {
+        canvas.width = size;
+        canvas.height = size;
+        
+        // Draw SVG on canvas
+        const img = new Image();
+        img.onload = function() {
+          ctx.drawImage(img, 0, 0, size, size);
+          
+          // Convert to PNG
+          const pngUrl = canvas.toDataURL('image/png');
+          
+          // Display the PNG
+          const downloadLink = document.createElement('a');
+          downloadLink.href = pngUrl;
+          downloadLink.download = `galaxy-icon-${size}.png`;
+          downloadLink.innerHTML = `<img src="${pngUrl}" width="${size}" height="${size}" style="margin: 10px;">`;
+          downloadLink.innerHTML += `<br>Download ${size}x${size}`;
+          downloadLink.style.display = 'inline-block';
+          downloadLink.style.margin = '10px';
+          downloadLink.style.textAlign = 'center';
+          previewDiv.appendChild(downloadLink);
+        };
+        img.src = 'galaxy-icon.svg';
+      });
+    }
+  </script>
+</body>
+</html> 

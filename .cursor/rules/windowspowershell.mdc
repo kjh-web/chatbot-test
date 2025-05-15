@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+In Windows PowerShell, use semicolon (;) instead of &&

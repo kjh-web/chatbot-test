@@ -1,0 +1,45 @@
+node_modules
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+ENV/
+
+# Next.js
+galaxy-web-ui/.next/
+galaxy-web-ui/out/
+galaxy-web-ui/node_modules/
+galaxy-web-ui/.env.local
+galaxy-web-ui/.env.development.local
+galaxy-web-ui/.env.test.local
+galaxy-web-ui/.env.production.local
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+.env

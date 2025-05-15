@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: galaxy-web-ui
+    runtime: node
+    plan: free
+    buildCommand: npm install -g pnpm && pnpm install && pnpm run build
+    startCommand: pnpm start
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        value: https://galaxy-rag-chatbot.onrender.com
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        value: https://ywvoksfszaelkceectaa.supabase.co
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl3dm9rc2ZzemFlbGtjZWVjdGFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU1NDg1MjAsImV4cCI6MjA2MTEyNDUyMH0.VEKQFQoVVFHvEBNOUiS_oG_TGSpIZaHFAf7G3kQF-EY
+      - key: NEXT_PUBLIC_SUPABASE_STORAGE_URL
+        value: https://ywvoksfszaelkceectaa.supabase.co/storage/v1
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: NEXTAUTH_URL
+        value: https://galaxy-rag-chatbot-front.onrender.com 
