@@ -3,8 +3,8 @@ services:
     name: galaxy-web-ui
     runtime: node
     plan: free
-    buildCommand: npm install -g pnpm && pnpm install && pnpm run build
-    startCommand: pnpm start
+    buildCommand: npm install && npm run build
+    startCommand: npm start
     envVars:
       - key: NEXT_PUBLIC_API_URL
         value: https://galaxy-rag-chatbot.onrender.com
